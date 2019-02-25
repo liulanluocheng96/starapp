@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览。-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <!--避免IE使用兼容模式-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!--优先使用 IE 最新版本和 Chrome:-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!--WebApp全屏模式   隐藏地址栏。-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--禁止百度转码显示。-->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!--忽略页面中的数字识别为电话，忽略email识别：-->
+    <meta name="format-detection" content="telphone=no, email=no"/>
+    <title>title</title>
+    <link rel="stylesheet" href="reset.css">
+    <!--设置rem-->
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    // orientationchange 事件是在用户水平或者垂直翻转设备（即方向发生变化）时触发的事件。
+                    // onresize 事件会在窗口或框架被调整大小时发生。
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        window.clientWidth = docEl.clientWidth;
+                        if (!window.clientWidth) return;
+                        docEl.style.fontSize = 50 * (window.clientWidth / 375) + 'px';
+                        window.base = 50 * (window.clientWidth / 375);
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <!--<script>-->
+        <!--function refresh() {-->
+            <!--var deviceWidth = document.documentElement.clientWidth;//移动端的浏览器视口的宽度 pc端用的是coffsetWidth;-->
+            <!--if (deviceWidth > 1080) {-->
+                <!--document.documentElement.style.fontSize = 1080 / 10.8 + "px";-->
+            <!--} else {-->
+                <!--document.documentElement.style.fontSize = deviceWidth / 7.5 + "px";-->
+            <!--}-->
+        <!--}-->
+        <!--refresh();-->
+        <!---->
+    <!--</script>-->
+</head>
+<body>
+<style>
+    .box{
+        width:7.5rem;
+        height: 16.24rem;
+        background: url(img/bg.jpg)no-repeat;
+        background-size: 100%;
+        position: relative;
+    }
+    .top{
+        width: 7.5rem;
+        height: 4.58rem;
+        position: relative;
+    }
+    .top>img{
+        position: absolute;
+        left: 0.3rem;
+        top: 50%;
+        transform: translateY(-1.3rem);
+    }
+    .top>h1{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-1.3rem);
+    }
+    .top>div{
+        position: absolute;
+        bottom:0.3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    .nav{
+        width: 7.5rem;
+        height: 0.5rem;
+        line-height: 0.5rem;
+        display: flex;
+        justify-content: space-around;
+    }
+    .nav>a{
+        font-size: 0.24rem;
+    }
+    .nav>a>em{
+        display: block;
+        width: 0.35rem;
+        height: 0.01rem;
+        background:#c916f7;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .content{
+        width: 7.5rem;
+        height: auto;
+        margin-top: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .content h3{
+        display: inline-block;
+        font-size: 0.28rem;
+        color: #4e4e4e;
+        margin-top: 0.2rem;
+    }
+    .content p{
+        font-size: 0.22rem;
+        color: #828281;
+        margin-top: 0.23rem;
+        margin-bottom: 0.31rem;
+        line-height: 0.30rem;
+    }
+    .content>div{
+        width: 7.2rem;
+        border-radius: 0.01rem;
+        margin-top: 0.14rem;
+    }
+    .content>div:nth-of-type(1){
+        outline-color:#e5e5e5;
+    }
+    .content>div>div{
+        height: 0.45rem;
+        display: flex;
+        align-items: center;
+    }
+    .content>div:nth-of-type(2)>div>em{
+        display: inline-block;
+        width: 0.45rem;
+        height: 0.45rem;
+        background: url(img/今日运势@2X.png)no-repeat;
+        background-size: 100%;
+        margin-top: 0.17rem;
+        margin-right: 0.15rem;
+    }
+    .content>div:nth-of-type(3)>div>em{
+        display: inline-block;
+        width: 0.45rem;
+        height: 0.45rem;
+        background: url(img/运势@2X.png)no-repeat;
+        background-size: 100%;
+        margin-top: 0.17rem;
+        margin-right: 0.15rem;
+    }
+    .content>div:nth-of-type(4)>div>em{
+        display: inline-block;
+        width: 0.45rem;
+        height: 0.45rem;
+        background: url(img/皇冠@2X.png)no-repeat;
+        background-size: 100%;
+        margin-top: 0.17rem;
+        margin-right: 0.15rem;
+    }
+    .content i{
+        display: inline-block;
+        width: 6.83rem;
+        height: 1rem;
+        background-image: url(img/today.jpg);
+        background-size: 100%;
+        background-position:50% 70%;
+        border-radius: 0.1rem;
+        margin-top: 0.2rem;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .foot{
+        width: 7.5rem;
+        height: 0.6rem;
+        position: absolute;
+        bottom: 0.8rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .foot>div{
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        text-align: center;
+    }
+    .foot>div:nth-of-type(1){
+        background:white;
+    }
+    .foot>div:nth-of-type(1)>p{
+        color: #c916f7;
+        font-size: 0.22rem;
+    }
+    .foot>div:nth-of-type(2)>p{
+        color: #828281;
+        font-size: 0.22rem;
+    }
+    .zhishu{
+        width: 7.5rem;
+        height: 2.5rem;
+        display: flex;
+        font-size: 0.26rem;
+        color: #4e4e4e;
+    }
+    .zhishu span{
+        float: left;
+    }
+    .zhishu em{
+        float: left;
+        display: inline-block;
+        width: 0.27rem;
+        height: 0.26rem;
+        background-image: url(img/星星-拷贝-2@2x.png);
+        background-size: 100%;  
+        margin-left: 0.1rem;  
+    }
+    .zhishu i{
+        float: left;
+        display: inline-block;
+        width: 0.27rem;
+        height: 0.26rem;
+        background-image: url(img/星星-拷贝-4@2x.png); 
+        background-size: 100%;  
+        margin:0 0 0 0.23rem;         
+    }
+    .lie{
+        width:3.6rem;
+        height: 2.3rem;
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+    }
+    .lie>div{
+        width: 3.4rem;
+        margin-bottom: 0.4rem;
+    }
+</style>
+<div class="box">
+    <!-- 顶部 -->
+    <div class="top">
+        <img src="img/图层-5.png" alt="">
+        <h1 style="font-size: 0.3rem;color: white;">星座伴侣</h1>
+        <div>
+            <img src="img/图层-4.png" alt="">
+            <p style="font-size: 0.26rem;">白羊座（Aries）</p>
+            <p style="font-size: 0.22rem;">3.21-4.19</p>
+        </div>
+    </div>
+    <!-- 导航 -->
+    <div class="nav">
+        <a href="javascript:;" style="color: #c916f7; font-weight:900;font-size: 0.25rem;">今日<em></em></a>
+        <a href="javascript:;">明日</a>
+        <a href="javascript:;">本周</a>
+        <a href="javascript:;">下周</a>
+        <a href="javascript:;">本月</a>
+        <a href="javascript:;">本年</a>
+    </div>
+    <!-- 运势 -->
+    <div class="content">
+        <div class="zhishu">
+            <div class="lie" style="height: 2.3rem;">
+                <div>
+                    <span>综合指数：</span>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <i></i>
+                </div>
+                <div>
+                    <span>爱情指数：</span>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <i></i>
+                </div>
+                <div>
+                    <span>工作指数：</span>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <i></i>
+                </div>               
+                <div>
+                    <span>幸运颜色：</span>
+                    <span style="font-size: 0.22rem;color:#6a6a6a;">古铜色</span>
+                </div>
+            </div>
+            <div class="lie" style="height: 2.3rem;">
+                <div>
+                    <span>健康指数：</span>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <i></i>
+                </div>
+                <div>
+                    <span>财运指数：</span>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                    <i></i>
+                </div>
+                <div>
+                    <span>速配星座：</span>
+                    <span style="font-size: 0.22rem;color:#8f8d8e;">处女座</span>
+                </div>                    
+                <div>
+                    <span>幸运数字：</span>
+                    <span style="font-size: 0.22rem;color:#8f8d8e;">9</span>
+                </div>
+            </div>
+        </div>
+        <div style="height: 2.19rem;">
+            <div>
+                <em></em>
+                <h3>今日概述</h3>
+            </div>
+            <p>
+                有些思考的小漩涡，可能让你忽然的放空，生活中许多细节让你感<br>
+                触良多，五位杂陈，常常有时候就慢动作定格，想法在某处冻结停<br>
+                留，陷入一阵自我对话的沉思之中，这个时候你不不喜欢被打扰或<br>
+                询问，也不想让某些曝光，个性变得有些隐晦。
+            </p>
+        </div>
+        <div style="height: 2.19rem;">
+            <div>
+                <em></em>
+                <h3>综合运势</h3>
+            </div>
+            <p>
+                开始新年新的工作，不要继续沉浸在节日的欢乐当中，赶紧回归吧！<br>
+                一天都不算太忙，现在只是工作的准备阶段。爱情是需要争取的，<br>
+                空想而不行动也是徒劳的。有获得赚钱的好机会，若能抓住必有收<br>
+                获。
+            </p>
+        </div>
+        <div>
+            <div>
+                <em></em>
+                <h3>每日推荐</h3>
+            </div>
+            <i></i>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="foot">
+        <div>
+            <img src="img/首页.png" alt="">
+            <p>首页</p>
+        </div>
+        <div>
+            <img src="img/头条-(2).png" alt="">
+            <p>头条</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
